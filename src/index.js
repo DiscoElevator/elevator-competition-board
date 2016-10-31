@@ -1,3 +1,4 @@
-import {env} from "env";
+import {select} from "d3";
+import {renderBrickWall} from "./brick-wall/brick-wall";
 
-console.log(env);
+select(".scene").append(renderBrickWall);

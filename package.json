@@ -4,17 +4,19 @@
   "description": "Elevator Competition Rating Board",
   "main": "index.js",
   "scripts": {
-    "dev": "npm-run-all lint --parallel pug watchify http-server",
-    "build": "npm-run-all lint --parallel pug browserify",
+    "dev": "npm-run-all lint --parallel pug less watchify http-server",
+    "build": "npm-run-all lint --parallel pug less browserify",
     "lint": "eslint src",
     "watchify": "watchify -vd -p browserify-hmr -e src/index.js -o dist/index.js",
     "browserify": "cross-env NODE_ENV=production browserify -e src/index.js | uglifyjs -c warnings=false -m > dist/index.js",
     "http-server": "http-server -c -1 -a localhost",
-    "pug": "pug src/index.pug -o ."
+    "pug": "pug src/index.pug -o .",
+    "less": "lessc src/index.less dist/index.css"
   },
   "browserify": {
     "transform": [
-      "babelify"
+      "babelify",
+      "pugify"
     ]
   },
   "repository": {
@@ -42,13 +44,22 @@
     "cross-env": "^3.1.3",
     "eslint": "^3.8.1",
     "http-server": "^0.9.0",
+    "less": "^2.7.1",
+    "less-cli": "^1.0.0",
     "npm-run-all": "^3.1.1",
     "pug": "^2.0.0-beta6",
     "pug-cli": "^1.0.0-alpha6",
+    "pugify": "^2.1.0",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.7.0"
   },
   "browser": {
     "env": "./src/env.js"
+  },
+  "dependencies": {
+    "d3": "^4.3.0",
+    "d3-shape": "^1.0.3",
+    "lodash": "^4.16.5",
+    "textures": "^1.0.4"
   }
 }
