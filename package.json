@@ -53,9 +53,6 @@
     "uglifyjs": "^2.4.10",
     "watchify": "^3.7.0"
   },
-  "browser": {
-    "env": "./src/env.js"
-  },
   "dependencies": {
     "d3": "^4.3.0",
     "d3-shape": "^1.0.3",

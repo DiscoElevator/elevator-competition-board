@@ -1,7 +1,26 @@
-.scene {
-  position: fixed;
+.page {
+  position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
+}
+.rating-layout {
+  display: flex;
+}
+.rating-layout__first-place {
+  flex: 1 1 auto;
+}
+.rating-layout__second-place {
+  flex: 0.9 1 auto;
+}
+.rating-layout__third-place {
+  flex: 0.8 1 auto;
+}
+.rating-layout__separator {
+  flex: 0.05 1 auto;
+  background-color: grey;
+}
+.rating-place {
+  background-color: green;
 }

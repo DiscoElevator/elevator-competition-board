@@ -1,0 +1,27 @@
+.rating-layout {
+	display: flex;
+
+	.place-proportion(@place-number) {
+		@proportion: (1 - 0.1 * (@place-number - 1));
+	}
+
+	&__first-place {
+		.place-proportion(1);
+		flex: @proportion 1 auto;
+	}
+
+	&__second-place {
+		.place-proportion(2);
+		flex: @proportion 1 auto;
+	}
+
+	&__third-place {
+		.place-proportion(3);
+		flex: @proportion 1 auto;
+	}
+
+	&__separator {
+		flex: 0.05 1 auto;
+		background-color: grey;
+	}
+}

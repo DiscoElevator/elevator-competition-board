@@ -1,4 +1,10 @@
-import {select} from "d3";
-import {renderBrickWall} from "./brick-wall/brick-wall";
+import {selectAll} from "d3";
+import {renderRatingPlace} from "./rating-place/rating-place.js";
 
-select(".scene").append(renderBrickWall);
+import {RATING} from "./rating.mock.js";
+
+function renderRating() {
+	selectAll(".rating-place").data(RATING).each(renderRatingPlace);
+}
+
+renderRating();
