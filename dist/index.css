@@ -4,23 +4,33 @@
   top: 0px;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .rating-layout {
   display: flex;
+  height: 100%;
 }
 .rating-layout__first-place {
   flex: 1 1 auto;
+  border-left: 0.5vw solid lightgrey;
+  border-right: 0.5vw solid lightgrey;
+  height: 100%;
+  position: relative;
+  order: 2;
 }
 .rating-layout__second-place {
-  flex: 0.9 1 auto;
+  flex: 1 1 auto;
+  border-left: 0.5vw solid lightgrey;
+  border-right: 0.5vw solid lightgrey;
+  height: 100%;
+  position: relative;
+  order: 1;
 }
 .rating-layout__third-place {
-  flex: 0.8 1 auto;
-}
-.rating-layout__separator {
-  flex: 0.05 1 auto;
-  background-color: grey;
-}
-.rating-place {
-  background-color: green;
+  flex: 1 1 auto;
+  border-left: 0.5vw solid lightgrey;
+  border-right: 0.5vw solid lightgrey;
+  height: 100%;
+  position: relative;
+  order: 3;
 }

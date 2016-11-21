@@ -1,27 +1,27 @@
 .rating-layout {
 	display: flex;
-
-	.place-proportion(@place-number) {
-		@proportion: (1 - 0.1 * (@place-number - 1));
-	}
+	height: 100%;
 
 	&__first-place {
-		.place-proportion(1);
-		flex: @proportion 1 auto;
+		@rating-place();
+		order: 2;
 	}
 
 	&__second-place {
-		.place-proportion(2);
-		flex: @proportion 1 auto;
+		@rating-place();
+		order: 1;
 	}
 
 	&__third-place {
-		.place-proportion(3);
-		flex: @proportion 1 auto;
+		@rating-place();
+		order: 3;
 	}
 
-	&__separator {
-		flex: 0.05 1 auto;
-		background-color: grey;
+	@rating-place: {
+		flex: 1 1 auto;
+		border-left: 0.5vw solid lightgrey;
+		border-right: 0.5vw solid lightgrey;
+		height: 100%;
+		position: relative;
 	}
 }

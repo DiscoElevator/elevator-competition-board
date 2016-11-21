@@ -2,12 +2,12 @@ export const RATING = [
 	{
 		index: 1,
 		name: "First",
-		rating: 300
+		rating: 10
 	},
 	{
 		index: 2,
 		name: "Second",
-		rating: 100
+		rating: 5
 	},
 	{
 		index: 3,
