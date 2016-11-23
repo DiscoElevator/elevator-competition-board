@@ -1,36 +1,32 @@
-.page {
+.rating-place__title {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  text-align: center;
+  font-family: Black Ops One;
+  font-size: 10vh;
+}
+.rating-place__elevator {
+  position: absolute;
+  left: 19%;
+  bottom: 0%;
+  width: 62%;
+  transition: bottom 0.75s ease-out;
+}
+.rating-page {
   position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
-.rating-layout {
   display: flex;
-  height: 100%;
 }
-.rating-layout__first-place {
+.rating-page__rating-place {
+  position: relative;
   flex: 1 1 auto;
   border-left: 0.5vw solid lightgrey;
   border-right: 0.5vw solid lightgrey;
   height: 100%;
-  position: relative;
-  order: 2;
-}
-.rating-layout__second-place {
-  flex: 1 1 auto;
-  border-left: 0.5vw solid lightgrey;
-  border-right: 0.5vw solid lightgrey;
-  height: 100%;
-  position: relative;
-  order: 1;
-}
-.rating-layout__third-place {
-  flex: 1 1 auto;
-  border-left: 0.5vw solid lightgrey;
-  border-right: 0.5vw solid lightgrey;
-  height: 100%;
-  position: relative;
-  order: 3;
 }

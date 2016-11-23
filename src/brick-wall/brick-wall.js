@@ -9,21 +9,22 @@ const BRICK_SIZE = 5;
 
 function renderBrickWall() {
 	const wall = select(document.createElementNS("http://www.w3.org/2000/svg", "svg"))
+		.attr("class", "brick-wall")
 		.attr("width", "100%").attr("height", "100%")
 		.attr("viewBox", `0 0 ${W} ${H}`)
 		.attr("preserveAspectRatio", "none");
-	const brickTexture = createBrickTexture(BRICK_SIZE);
-	wall.call(brickTexture);
+	const brickTextureGenerator = createBrickTextureGenerator(BRICK_SIZE);
+	wall.call(brickTextureGenerator);
 	wall.append("rect")
 		.attr("x", 0).attr("y", 0)
 		.attr("width", W).attr("height", H)
-		.style("fill", brickTexture.url());
+		.style("fill", brickTextureGenerator.url());
 	wall.select("pattern")
 		.append(renderBrickWallAnimation);
 	return wall.node();
 }
 
-function createBrickTexture() {
+function createBrickTextureGenerator() {
 	return paths()
 		.d("woven")
 		.size(BRICK_SIZE)
@@ -33,6 +34,7 @@ function createBrickTexture() {
 
 function renderBrickWallAnimation() {
 	return select(document.createElementNS("http://www.w3.org/2000/svg", "animateTransform"))
+		.attr("class", "brick-wall__animate")
 		.attr("attributeType", "xml").attr("attributeName", "patternTransform")
 		.attr("type", "translate")
 		.attr("from", "0 0").attr("to", "0 5")
@@ -41,6 +43,6 @@ function renderBrickWallAnimation() {
 }
 
 function updateBrickWallAnimation(duration) {
-	select(this).select("animateTransform")
-		.attr("dur", `${duration}ms`);
+	select(this).select(".brick-wall__animate")
+		.attr("dur", `${duration || 0}ms`);
 }

@@ -9,7 +9,7 @@
     "lint": "eslint src",
     "watchify": "watchify -vd -p browserify-hmr -e src/index.js -o dist/index.js",
     "browserify": "cross-env NODE_ENV=production browserify -e src/index.js | uglifyjs -c warnings=false -m > dist/index.js",
-    "http-server": "http-server -c -1 -a localhost",
+    "http-server": "http-server -c -1 -a localhost -p 8070",
     "pug": "pug src/index.pug -o .",
     "less": "lessc src/index.less dist/index.css"
   },
@@ -50,6 +50,7 @@
     "pug": "^2.0.0-beta6",
     "pug-cli": "^1.0.0-alpha6",
     "pugify": "^2.1.0",
+    "socket.io": "^1.6.0",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.7.0"
   },
