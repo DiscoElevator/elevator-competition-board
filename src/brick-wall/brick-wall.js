@@ -10,7 +10,6 @@ const BRICK_SIZE = 5;
 function renderBrickWall() {
 	const wall = select(document.createElementNS("http://www.w3.org/2000/svg", "svg"))
 		.attr("class", "brick-wall")
-		.attr("width", "100%").attr("height", "100%")
 		.attr("viewBox", `0 0 ${W} ${H}`)
 		.attr("preserveAspectRatio", "none");
 	const brickTextureGenerator = createBrickTextureGenerator(BRICK_SIZE);

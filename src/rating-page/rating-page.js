@@ -14,7 +14,7 @@ function updateRatingPage(rating) {
 
 	ratingPlace.enter()
 		.append(renderRatingPlace)
-		.attr("class", "rating-page__rating-place")
+		.classed("rating-page__rating-place", true)
 		.call(updateRatingPlaceLayout)
 		.each(updateRatingPlace);
 }
