@@ -4,6 +4,7 @@ import maxBy from "lodash/maxBy";
 import assign from "lodash/assign";
 import fill from "lodash/fill";
 import partial from "lodash/partial";
+import io from "socket.io-client";
 
 export {subscribeToRating};
 
@@ -32,27 +33,35 @@ const RAW_RATING = [
 
 function subscribeToRating(callback) {
 	// socket
-	callback(getNormalizedTop3());
-	setInterval(function () {
-		callback(getNormalizedTop3());
-	}, 3000);
+	const socket = io("http://localhost:8090");
+	socket.on("scores_changed", data => {
+		console.log("change", data);
+		callback(getNormalizedTop3(data));
+	});
+	socket.on("connect", () => {
+		socket.emit("get_scores");
+	});
+	// callback(getNormalizedTop3());
+	// setInterval(function () {
+	// 	callback(getNormalizedTop3());
+	// }, 3000);
 }
 
-function getNormalizedTop3() {
-	let rating = RAW_RATING;
-	randomize(rating);
+function getNormalizedTop3(rating) {
+	// let rating = RAW_RATING;
+	// randomize(rating);
 	rating = orderRating(rating);
 	rating = take(rating, 3);
 	rating = rating.concat(fill(Array(3 - rating.length), EMPTY_RATING_RECORD));
 	return normalizeRating(rating);
 }
 
-function randomize(rating) {
-	rating.forEach(ratingRecord => {
-		ratingRecord.level = parseInt(1 + Math.random() * 10);
-		ratingRecord.points = 100 * ratingRecord.level +  100 * Math.random();
-	});
-}
+// function randomize(rating) {
+// 	rating.forEach(ratingRecord => {
+// 		ratingRecord.level = parseInt(1 + Math.random() * 10);
+// 		ratingRecord.score = 100 * ratingRecord.level +  100 * Math.random();
+// 	});
+// }
 
 function orderRating(rating) {
 	rating = sortBy(rating, ratingRecord => -ratingRecord.points);
