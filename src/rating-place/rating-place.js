@@ -41,7 +41,7 @@ function updateElevatorLayout(elevator, ratingRecord) {
 
 function getBrickWallAnimationDuration(ratingRecord) {
 	if (ratingRecord.level) {
-		return Math.max(200, 2000 / ratingRecord.level);
+		return Math.max(200, (2000 / ratingRecord.level).toFixed(2));
 	} else {
 		return 0;
 	}

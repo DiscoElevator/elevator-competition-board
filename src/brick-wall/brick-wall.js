@@ -43,5 +43,6 @@ function renderBrickWallAnimation() {
 
 function updateBrickWallAnimation(duration) {
 	select(this).select(".brick-wall__animate")
-		.attr("dur", `${duration || 0}ms`);
+		.attr("dur", `${duration || 0}ms`)
+		.node().beginElement();
 }
