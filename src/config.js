@@ -1,3 +1,3 @@
 export default {
-    gameServerUrl: "http://localhost:8070"
-}
+	gameServerUrl: "http://localhost:8070"
+};
